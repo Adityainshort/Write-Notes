@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container w-full  p-10 min-h-screen bg-zinc-700">
+        <div class="form">
+            <form class="flex gap-5 flex-col" action="/create" method="post">
+                <input class="w-full bg-zinc-800 text-white p-2 rounded-md outline-none" type="text" name="title" placeholder="Enter your title">
+                <textarea class="mt-2 bg-zinc-800 text-white resize-none w-full p-2 rounded-md outline-none " name="description" placeholder="Enter your description" ></textarea>
+                <input class="w-fit h-fit bg-blue-500 p-2 rounded-lg" type="submit" value="Add">
+            </form>
+        </div>
+
+        <% if(files.length>0) {%>
+            <h1 class="text-3xl font-bold mt-10 text-white">To Do List</h1>
+             <div class="flex gap-4 flex-wrap w-full mt-5"> 
+            <% files.forEach(file => { %>
+                <div class="w-1/5 min-h-[20vh] p-5  bg-zinc-800 flex flex-col justify-between rounded-md relative ">
+                    <button onclick="location.href='/delete/<%=file%>'" class="absolute top-5 right-5  text-red-400"><i class="fa-solid fa-trash-can " style="color: rgb(185, 181, 181);" ></i></button>
+                    <h1 class="text-3xl font-bold  text-white "><%=file.split('-').join(' ').slice(0,-4)%></h1>
+                    <a class="text-blue-500 mt-4" href="/files/<%=file%>">see more</a>
+                </div>
+            <% })%>
+            </div>
+
+        <%}else{%>
+            <h1 class="text-3xl font-bold mt-10 text-white">No items </h1>
+        <%} %>
+    </div>
+</body>
+</html>

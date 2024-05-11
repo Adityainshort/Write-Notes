@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-700 p-10 text-white ">
+        <a href="/" class="bg-blue-500 p-2 rounded-md text-black"> Go back to home</a>
+        
+        <h1 class="text-7xl w-full font-bold mt-10 text-white mx-auto"><%=name.split('-').join(' ').slice(0,-4)%></h1>
+        <div class="w-full h-[10px] bg-zinc-800 mt-10"></div>
+        <p class="mt-10 p-3 text-zinc-300 text-3xl bg-zinc-700 w-full"><%=data%></p>
+    </div>
+</body>
+</html>
